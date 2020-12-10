@@ -42,7 +42,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_output = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.num_Interval = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -57,6 +57,10 @@
             this.btn_SelectFolder = new System.Windows.Forms.Button();
             this.txt_FilePath = new System.Windows.Forms.TextBox();
             this.fCCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_ClearOutput = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_ServerView)).BeginInit();
@@ -70,6 +74,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_tests)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -119,7 +124,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.prog_Progress,
             this.lbl_Status});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 293);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(378, 22);
             this.statusStrip1.TabIndex = 1;
@@ -138,31 +143,28 @@
             // 
             // btn_RunSpeedTest
             // 
-            this.btn_RunSpeedTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_RunSpeedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RunSpeedTest.Location = new System.Drawing.Point(12, 27);
+            this.btn_RunSpeedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RunSpeedTest.Location = new System.Drawing.Point(7, 19);
             this.btn_RunSpeedTest.Name = "btn_RunSpeedTest";
-            this.btn_RunSpeedTest.Size = new System.Drawing.Size(350, 38);
+            this.btn_RunSpeedTest.Size = new System.Drawing.Size(55, 27);
             this.btn_RunSpeedTest.TabIndex = 2;
-            this.btn_RunSpeedTest.Text = "Run Speed Test";
+            this.btn_RunSpeedTest.Text = "Run";
             this.btn_RunSpeedTest.UseVisualStyleBackColor = true;
             // 
             // dg_ServerView
             // 
             this.dg_ServerView.AllowUserToAddRows = false;
             this.dg_ServerView.AllowUserToDeleteRows = false;
-            this.dg_ServerView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dg_ServerView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dg_ServerView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_ServerView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dg_ServerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_ServerView.Location = new System.Drawing.Point(0, 0);
+            this.dg_ServerView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dg_ServerView.Location = new System.Drawing.Point(3, 3);
             this.dg_ServerView.Name = "dg_ServerView";
             this.dg_ServerView.ReadOnly = true;
             this.dg_ServerView.RowHeadersVisible = false;
             this.dg_ServerView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_ServerView.Size = new System.Drawing.Size(346, 314);
+            this.dg_ServerView.Size = new System.Drawing.Size(340, 173);
             this.dg_ServerView.TabIndex = 0;
             // 
             // tabControl1
@@ -176,7 +178,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 85);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(354, 340);
+            this.tabControl1.Size = new System.Drawing.Size(354, 205);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -185,7 +187,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(346, 314);
+            this.tabPage1.Size = new System.Drawing.Size(346, 179);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server List";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -199,32 +201,33 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(346, 314);
+            this.tabPage2.Size = new System.Drawing.Size(346, 179);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.txt_output);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(346, 314);
+            this.tabPage3.Size = new System.Drawing.Size(346, 179);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Output";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txt_output
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(-4, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 328);
-            this.textBox1.TabIndex = 1;
+            this.txt_output.Location = new System.Drawing.Point(-4, 0);
+            this.txt_output.Multiline = true;
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt_output.Size = new System.Drawing.Size(350, 193);
+            this.txt_output.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -368,13 +371,60 @@
             this.fCCToolStripMenuItem.Text = "FCC Website";
             this.fCCToolStripMenuItem.Click += new System.EventHandler(this.fCCToolStripMenuItem_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.btn_ClearOutput);
+            this.groupBox5.Controls.Add(this.button2);
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.btn_RunSpeedTest);
+            this.groupBox5.Location = new System.Drawing.Point(12, 27);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(347, 52);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Controls";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(68, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 27);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Stop";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(129, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(55, 27);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Pause";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btn_ClearOutput
+            // 
+            this.btn_ClearOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ClearOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ClearOutput.Location = new System.Drawing.Point(267, 19);
+            this.btn_ClearOutput.Name = "btn_ClearOutput";
+            this.btn_ClearOutput.Size = new System.Drawing.Size(74, 27);
+            this.btn_ClearOutput.TabIndex = 5;
+            this.btn_ClearOutput.Text = "Clear Output";
+            this.btn_ClearOutput.UseVisualStyleBackColor = true;
+            this.btn_ClearOutput.Click += new System.EventHandler(this.btn_ClearOutput_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 450);
+            this.ClientSize = new System.Drawing.Size(378, 315);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btn_RunSpeedTest);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -398,6 +448,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_tests)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,8 +482,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown num_Interval;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_output;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ToolStripMenuItem fCCToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_ClearOutput;
     }
 }

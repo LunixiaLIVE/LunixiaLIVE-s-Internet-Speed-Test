@@ -52,6 +52,9 @@ namespace Internet_Speed_Test
             String procGetServersOutput = procGetServers.StandardOutput.ReadToEnd();
             String procGetServersError = procGetServers.StandardError.ReadToEnd();
 
+            txt_output.Text = procGetServersOutput;
+            txt_output.Text += procGetServersError;
+
             DataTable dt_Servers = new DataTable();
             dt_Servers.Columns.Add("ID", typeof(String));
             dt_Servers.Columns.Add("Name", typeof(String));
@@ -75,6 +78,7 @@ namespace Internet_Speed_Test
             }
             dg_ServerView.DataSource = dt_Servers;
             lbl_Status.Text = "Ready...";
+            dg_ServerView.ClearSelection();
             Application.DoEvents();
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,6 +126,11 @@ namespace Internet_Speed_Test
         {
             num_Interval.Enabled = true;
             num_tests.Enabled = true;
+        }
+
+        private void btn_ClearOutput_Click(object sender, EventArgs e)
+        {
+            txt_output.Clear();
         }
     }
 }
