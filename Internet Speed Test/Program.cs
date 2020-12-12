@@ -1,14 +1,18 @@
 ﻿using System;
-using System.IO;
-using System.IO.Compression;
-using System.Net;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Internet_Speed_Test
 {
+    static class Global
+    {
+        public static Process proc = new Process();
+        public static ProcessStartInfo psi = new ProcessStartInfo();
+        public static String strHeaders = "Server, ServerID, ISP, Latency, LatencyUnit, Jitter, JitterUnit, Download, DownloadUnit, Upload, UploadUnit, PacketLoss, ResultURL";
+        public static String strLogFileName;
+        public static Boolean Breakout;
+    }
+
     static class Program
     {
         /// <summary>
